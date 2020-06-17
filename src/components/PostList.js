@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useHistory, useLocation } from "react-router-dom";
+import {Link, useHistory, useLocation} from "react-router-dom";
 
 const PostList = () => {
 
@@ -26,9 +26,11 @@ const PostList = () => {
   return (
     <>
       <h1>All posts</h1>
-      {console.log('sdsdsd',state)}
+      {console.log('sdsdsd', state)}
       <ul>
-        {state.listOfPosts && state.listOfPosts.map(item => <li>{item.title}</li>)}
+        {state.listOfPosts && state.listOfPosts.map(item => {
+          return <Link to={`${item.id}`}>{item.title}</Link>
+        })}
       </ul>
     </>
   );
